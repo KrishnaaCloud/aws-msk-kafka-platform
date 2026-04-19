@@ -13,6 +13,6 @@ As the **sole engineer responsible** for the organization-wide transition from s
 
 ## 📁 Repository Directory Structure
 
-- **[/connectors](./connectors/)**: Production-ready configuration files for MSK JDBC Source Connectors.
-- **[/scripts](./scripts/stagger_pulse.sh)**: Custom Bash orchestration suite for staggered execution.
-- **[/docs](./docs/)**: Technical deep-dives, Stakeholder sync logs, and Migration strategy documents.
+- **[Sample Connectors](https://github.com/KrishnaaCloud/Kafka/blob/main/msk/Scripts/stagger_pulse.sh))**: Production-ready configuration files for MSK JDBC Source Connectors.
+- **[[/scripts](./scripts/stagger_pulse.sh)](https://github.com/KrishnaaCloud/Kafka/tree/689b5c3b348fd6cd147eca65ee1f5c6bab8503fc/msk%20/Scripts%20)**: Custom Bash orchestration suite for staggered execution.
+- **[[/docs](./docs/)](https://github.com/KrishnaaCloud/Kafka/tree/689b5c3b348fd6cd147eca65ee1f5c6bab8503fc/msk%20/docs%20)**: Technical deep-dives, Stakeholder sync logs, and Migration strategy documents.
