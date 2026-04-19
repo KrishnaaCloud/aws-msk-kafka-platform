@@ -1,0 +1,26 @@
+{
+  "name": "prod_donations_onetime_v2",
+  "config": {
+    "connector.class": "io.confluent.connect.jdbc.JdbcSourceConnector",
+    "tasks.max": "1",
+    "connection.url": "jdbc:mysql://live-outreach-read-replica.cyyxz6dgpdlm.ap-south-1.rds.amazonaws.com/uatout*****",
+    "connection.user": "${secretsManager:prod/outreach/db-credentials:username}",
+    "connection.password": "${secretsManager:prod/outreach/db-credentials:password}",
+    "config.providers": "secretsManager",
+    "config.providers.secretsManager.class": "com.amazonaws.kafka.config.providers.SecretsManagerConfigProvider",
+    "config.providers.secretsManager.param.region": "ap-south-1",
+    "query": "SELECT * FROM (select first_name, last_name, email, phone_number, city, address, state, zipcode, country, pan_card, aadhar_card, donation_purpose, BOA as boa, cdate, CAST(udate AS DATETIME) as udate, original_amount, joomla_transaction_id, ereceipt_number, ereceipt_date, is_corpus, CorpusOTPPDF as corpus_link, corpus_flag, corpus_date from one_time_donation_view where ereceipt_number IS NOT NULL AND initiative_id != 3 AND udate >= '2026-04-01 00:00:00' AND ereceipt_date >= '2026-04-01 00:00:00') as t",
+    "mode": "timestamp",
+    "timestamp.column.name": "ereceipt_date",
+    "validate.non.null": "true",
+    "batch.max.rows": "1000",
+    "poll.interval.ms": "43200000",
+    "topic.prefix": "prod_donations_erp_payments",
+    "numeric.mapping": "best_fit",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "transforms": "createKey",
+    "transforms.createKey.type": "org.apache.kafka.connect.transforms.ValueToKey",
+    "transforms.createKey.fields": "joomla_transaction_id"
+  }
+}
