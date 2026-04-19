@@ -69,7 +69,7 @@ gantt
 
 ### Operational Logic
 1. **Quiescent State**: Connectors are locked with a `poll.interval.ms` of 12 hours.
-2. **Scheduled Trigger**: System Cron initiates the `stagger_pulse.sh` script twice daily. [`stagger_pulse.sh`](../Scripts/stagger_pulse.sh)
+2. **Scheduled Trigger**: System Cron initiates the `stagger_pulse.sh` script twice daily. [stagger_pulse.sh](https://github.com/KrishnaaCloud/Kafka/blob/c17086a37c8ed1b00fe06de515e4a2b1c79cfa50/msk%20/Scripts%20/stagger_pulse.sh)
 3. **Automated Restart**: The script forces a `POST /restart` for each task with a **300-second sleep** between activations to spread database load evenly.
 
 ---
