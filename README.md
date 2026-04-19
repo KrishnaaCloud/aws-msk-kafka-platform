@@ -1,4 +1,4 @@
-# Enterprise MSK Migration & Infrastructure Management
+# Kafka to MSK Migration & Infrastructure Management
 
 ## Role: Lead Migration Architect
 As the **sole engineer responsible** for the organization-wide transition from self-managed Kafka to **Amazon MSK**, I spearheaded the end-to-end migration of all data streams, connectors, and topics. This suite contains the production-hardened configurations, security integrations, and automation logic I developed to standardize our enterprise data infrastructure.
